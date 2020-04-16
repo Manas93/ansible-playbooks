@@ -1,0 +1,23 @@
+- name: Create instance(s)
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+
+  vars:
+    service_account_email: servicenowitomdev@servicenowitomdev.iam.gserviceaccount.com
+    credentials_file: /home/jayant/ansible_playbooks/ansible_cred.json
+    project_id: servicenowitomdev
+    machine_type: n1-standard-1
+    image: debian-7
+
+  tasks:
+
+   - name: Launch instances
+     gce:
+         instance_names: "{{instance_name}}"
+         machine_type: "{{ machine_type }}"
+         image: "{{ image }}"
+         service_account_email: "{{ service_account_email }}"
+         credentials_file: "{{ credentials_file }}"
+         project_id: "{{ project_id }}"
+

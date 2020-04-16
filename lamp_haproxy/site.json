@@ -1,0 +1,46 @@
+[
+    {
+        "hosts": "all", 
+        "roles": [
+            "common"
+        ]
+    }, 
+    {
+        "hosts": "dbservers", 
+        "roles": [
+            "db"
+        ], 
+        "tags": [
+            "db"
+        ]
+    }, 
+    {
+        "hosts": "webservers", 
+        "roles": [
+            "base-apache", 
+            "web"
+        ], 
+        "tags": [
+            "web"
+        ]
+    }, 
+    {
+        "hosts": "lbservers", 
+        "roles": [
+            "haproxy"
+        ], 
+        "tags": [
+            "lb"
+        ]
+    }, 
+    {
+        "hosts": "monitoring", 
+        "roles": [
+            "base-apache", 
+            "nagios"
+        ], 
+        "tags": [
+            "monitoring"
+        ]
+    }
+]

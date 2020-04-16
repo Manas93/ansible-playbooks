@@ -1,0 +1,25 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    key_name: admin-Default
+    name: SampleVM
+    instance_type: t2.micro
+    image: ami-1ff6fe7f
+    subnet: subnet-6d439635
+    assign_public_ip: false
+    aws_access_key: aws_access_key
+    aws_secret_key: aws_secret_key
+
+  tasks:
+   - ec2:
+      key_name: "{{ key_name }}"
+      region: us-west-1
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_key: "{{ aws_secret_key }}"
+      image: "{{ image }}"
+      instance_type: "{{ instance_type }}"
+      vpc_subnet_id: "{{ subnet }}"
+      assign_public_ip: "{{ assign_public_ip }}"
+      instance_tags:
+        Name: "{{ name }}"
